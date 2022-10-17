@@ -1,1 +1,5 @@
-view index <%= @name %>
+view index 
+<% @cars.each do |car|%>
+    <p><%= car.name %></p>
+    <p><%= car.model %></p>
+<%end%>

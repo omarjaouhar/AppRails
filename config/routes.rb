@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root to: 'cars#home'
   get '/salut', to: 'pages#salut' 
   get '/cars/:name', to: 'cars#index'
+  resources :cars
   #get post put delete, match(via post..) root
   # Defines the root path route ("/")
   # root "articles#index"

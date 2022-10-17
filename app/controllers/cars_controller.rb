@@ -1,7 +1,7 @@
 class CarsController < ApplicationController
     def index
-        @name = params[:name]
-    end  
+        @cars = Car.all
+    end   
     def home
     end  
 end    
