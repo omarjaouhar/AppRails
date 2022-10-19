@@ -1,5 +1,32 @@
 view index 
-<% @cars.each do |car|%>
-    <p><%= car.name %></p>
-    <p><%= car.model %></p>
-<%end%>
+<% if flash[:notice] %>
+    <p><%= flash[:notice] %></p>
+<% end %>
+    <h1>Cars List</h1>
+    <table class="table table-success table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Name</th>
+                <th scope="col">Model</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <% @cars.each do |car|%>
+        <tbody>
+            <tr>
+                <td><%= car.id %></td>
+                <td><%= car.name %></td>
+                <td><%= car.model %></td>
+                <td> 
+                    <a href="<%= car_path(car.id) %>" class="btn btn-primary">Show</a>
+                    <a href="<%= edit_car_path(car.id) %>" class="btn btn-secondary">Update</a>
+                    <a href="/cars/<%= car.id %>" class="btn btn-danger" data-confirm="Are you sure ?" data-method="delete">Delete</a>
+                    <%= link_to 'Destroy', car_path(car.id), :confirm => "Are you sure?", :method => :delete %>
+                </td>
+            </tr>
+        </tbody>
+        <%end%>
+    </table>
+    <a href="<%= new_car_path %>" class="btn btn-success">Create new car</a>
+
