@@ -22,7 +22,6 @@ view index
                     <a href="<%= car_path(car.id) %>" class="btn btn-primary">Show</a>
                     <a href="<%= edit_car_path(car.id) %>" class="btn btn-secondary">Update</a>
                     <a href="/cars/<%= car.id %>" class="btn btn-danger" data-confirm="Are you sure ?" data-method="delete">Delete</a>
-                    <%= link_to 'Destroy', car_path(car.id), :confirm => "Are you sure?", :method => :delete %>
                 </td>
             </tr>
         </tbody>
