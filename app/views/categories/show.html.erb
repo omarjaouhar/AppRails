@@ -1,2 +1,4 @@
-<h1>Categories#show</h1>
-<p>Find me in app/views/categories/show.html.erb</p>
+<h1>Categories</h1>
+<p><label>Name :</label><%= @category.name %></p>
+<p><label>Slug :</label><%= @category.slug %></p>
+<p><a href="<%= categories_path %>" class="btn btn-primary">Back to list of catagories</a></p>

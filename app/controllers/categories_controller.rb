@@ -1,11 +1,17 @@
 class CategoriesController < ApplicationController
   before_action :find_category, only: [:show, :edit, :update, :destroy]
   def index
+    #@session = session[:user_id]
+    #flash.now[:success] = "Slaut !"
+    cookies[:username] = {
+      value: "Omar",
+      expires: 1.month.from_now
+    }
     @categories = Category.all
   end
 
   def show
-  end
+  end 
 
   def new
     @category = Category.new
@@ -21,7 +27,7 @@ class CategoriesController < ApplicationController
 
   def update
     @category.update(category_params)
-    redirect_to category_path(@category.id)
+    redirect_to categories_path, flash: {notice: "Category updated"}
   end
 
   def destroy

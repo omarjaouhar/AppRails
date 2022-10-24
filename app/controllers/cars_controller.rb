@@ -1,6 +1,8 @@
 class CarsController < ApplicationController
     before_action :find_car, only: [:show, :edit, :update, :destroy]
+
     def index
+        session[:user_id] = 4
         @cars = Car.all
     end   
 
@@ -8,6 +10,7 @@ class CarsController < ApplicationController
     end
 
     def edit
+
     end
 
     def update
