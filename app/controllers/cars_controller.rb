@@ -39,7 +39,7 @@ class CarsController < ApplicationController
 
     private
         def post_params
-            params.require(:car).permit(:name, :model)
+            params.require(:car).permit(:name, :model, :category_id)
         end    
         def find_car
             @car = Car.find(params[:id])

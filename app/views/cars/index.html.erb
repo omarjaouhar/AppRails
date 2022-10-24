@@ -3,6 +3,12 @@ view index
     <p><%= flash[:notice] %></p>
 <% end %>
     <h1>Cars List</h1>
+
+    <div class= "form-group">
+        <label>filter by Category :</label>
+        <%= form.text_field :model, class: 'form-control' %>
+    </div>
+
     <table class="table table-success table-striped">
         <thead>
             <tr>
