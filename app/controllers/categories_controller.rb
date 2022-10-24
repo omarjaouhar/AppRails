@@ -7,7 +7,13 @@ class CategoriesController < ApplicationController
       value: "Omar",
       expires: 1.month.from_now
     }
+
     @categories = Category.all
+
+    respond_to do |format|
+      format.html
+      format.json {render json: @categories}
+    end  
   end
 
   def show
@@ -26,8 +32,11 @@ class CategoriesController < ApplicationController
   end  
 
   def update
-    @category.update(category_params)
-    redirect_to categories_path, flash: {notice: "Category updated"}
+    if @category.update(category_params)
+      redirect_to categories_path, flash: {notice: "Category updated"}
+    else
+      render 'edit' 
+    end  
   end
 
   def destroy

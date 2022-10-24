@@ -9,15 +9,18 @@ view index
                 <th scope="col">Id</th>
                 <th scope="col">Name</th>
                 <th scope="col">Model</th>
+                <th scope="col"> Category </th>
                 <th scope="col">Actions</th>
             </tr>
         </thead>
         <% @cars.each do |car|%>
+        <% if car.category %>
         <tbody>
             <tr>
                 <td><%= car.id %></td>
                 <td><%= car.name %></td>
                 <td><%= car.model %></td>
+                <td><%= car.category.name %></td>
                 <td> 
                     <a href="<%= car_path(car.id) %>" class="btn btn-primary">Show</a>
                     <a href="<%= edit_car_path(car.id) %>" class="btn btn-secondary">Update</a>
@@ -25,6 +28,7 @@ view index
                 </td>
             </tr>
         </tbody>
+        <%end%>
         <%end%>
     </table>
     <a href="<%= new_car_path %>" class="btn btn-success">Create new car</a>

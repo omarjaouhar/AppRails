@@ -10,19 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_19_084825) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_24_100357) do
   create_table "cars", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "name"
     t.text "model"
+    t.integer "category_id"
+    t.index ["category_id"], name: "index_cars_on_category_id"
   end
 
   create_table "categories", force: :cascade do |t|
-    t.string "name", null: false
+    t.string "name"
     t.string "slug"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "cars", "categories"
 end

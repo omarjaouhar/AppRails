@@ -3,7 +3,7 @@ class CarsController < ApplicationController
 
     def index
         session[:user_id] = 4
-        @cars = Car.all
+        @cars = Car.includes(:category).all
     end   
 
     def show
