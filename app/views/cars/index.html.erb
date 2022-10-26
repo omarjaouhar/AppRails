@@ -4,10 +4,14 @@ view index
 <% end %>
     <h1>Cars List</h1>
 
+<%= form_tag cars_path, :method => 'get' do %>
     <div class= "form-group">
         <label>filter by Category :</label>
-        <%= form.text_field :model, class: 'form-control' %>
+        <%= collection_select :car, :category_id, Category.all, :id, :name, promot: true %>
+        <%=  submit_tag "Search" %>
     </div>
+<% end %>
+    
 
     <table class="table table-success table-striped">
         <thead>
